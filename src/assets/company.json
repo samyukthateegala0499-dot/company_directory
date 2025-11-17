@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "name": "TechNova Solutions",
+    "location": "Bengaluru, India",
+    "industry": "Software Development",
+    "employees": 240
+  },
+  {
+    "id": 2,
+    "name": "GreenLeaf Organics",
+    "location": "Pune, India",
+    "industry": "Agriculture / Food",
+    "employees": 65
+  }
+  ,
+  {
+    "id": 3,
+    "name": "UrbanBuild Constructions",
+    "location": "Hyderabad, India",
+    "industry": "Construction",
+    "employees": 480
+  },
+  {
+    "id": 4,
+    "name": "MediCare Pharma",
+    "location": "Mumbai, India",
+    "industry": "Healthcare / Pharma",
+    "employees": 320
+  },
+  {
+    "id": 5,
+    "name": "FinWave Technologies",
+    "location": "Chennai, India",
+    "industry": "FinTech",
+    "employees": 150
+  },
+  {
+    "id": 6,
+    "name": "EduSpark Academy",
+    "location": "Delhi, India",
+    "industry": "EdTech",
+    "employees": 85
+  },
+  {
+    "id": 7,
+    "name": "SkyWay Logistics",
+    "location": "Kolkata, India",
+    "industry": "Transport / Logistics",
+    "employees": 410
+  },
+  {
+    "id": 8,
+    "name": "BrightPixel Studios",
+    "location": "Goa, India",
+    "industry": "Creative / Media",
+    "employees": 40
+  },
+  {
+    "id": 9,
+    "name": "AquaPure Systems",
+    "location": "Ahmedabad, India",
+    "industry": "Water Technology",
+    "employees": 120
+  },
+  {
+    "id": 10,
+    "name": "CloudWorks IT",
+    "location": "Noida, India",
+    "industry": "Cloud Computing",
+    "employees": 270
+  }
+]
