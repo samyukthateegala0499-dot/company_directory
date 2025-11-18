@@ -17,7 +17,7 @@ Tech Stack:
 | Styling          | TailwindCSS      |
 | State Management | Context API      |
 | Mock API         | Local JSON file  |
-| Deployment       | Vercel / Netlify |
+| Deployment       | Vercel |
 
 
 Folder Structure:
