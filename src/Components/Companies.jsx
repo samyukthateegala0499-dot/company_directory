@@ -1,85 +1,91 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CompanyContext from "../Context/CompanyContext";
+import CompanyModal from "../Components/Modal"
 
 const Companies = () => {
-  const {
-    companies,
-    search,
-    setSearch,
-    locationFilter,
-    setLocationFilter,
-    industryFilter,
-    setIndustryFilter,
-    locations,
-    industries,
-  } = useContext(CompanyContext);
+  const { companies, search, setSearch, locationFilter, setLocationFilter, industryFilter, setIndustryFilter, locations, industries } =
+    useContext(CompanyContext);
+
+  const [selectedCompany, setSelectedCompany] = useState(null);
 
   return (
-    <div className="pt-24 px-6 max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold mb-8">Company Directory</h1>
+    <div className="pt-24 px-6 max-w-6xl mx-auto">
+
+      <h1 className="text-3xl font-bold mb-6">Company Directory</h1>
 
       {/* Filters */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         
         {/* Search */}
         <input
           type="text"
-          placeholder="Search by company name..."
-          className="p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+          placeholder="Search company..."
+          className="border p-2 rounded-lg"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
 
         {/* Location Filter */}
         <select
-          className="p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="border p-2 rounded-lg"
           value={locationFilter}
           onChange={(e) => setLocationFilter(e.target.value)}
         >
           {locations.map((loc, i) => (
-            <option key={i} value={loc}>{loc}</option>
+            <option key={i} value={loc}>
+              {loc}
+            </option>
           ))}
         </select>
 
         {/* Industry Filter */}
         <select
-          className="p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="border p-2 rounded-lg"
           value={industryFilter}
           onChange={(e) => setIndustryFilter(e.target.value)}
         >
           {industries.map((ind, i) => (
-            <option key={i} value={ind}>{ind}</option>
+            <option key={i} value={ind}>
+              {ind}
+            </option>
           ))}
         </select>
       </div>
 
-      {/* Company Cards */}
-      {companies.length === 0 ? (
-        <p className="text-gray-500 text-lg">No companies found.</p>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {companies.map((company) => (
-            <div
-              key={company.id}
-              className="p-6 bg-white shadow-md rounded-xl border hover:shadow-lg transition"
-            >
-              <h2 className="text-xl font-semibold mb-2">{company.name}</h2>
-              
-              <p className="text-gray-600">
-                <strong>Location:</strong> {company.location}
-              </p>
-              
-              <p className="text-gray-600">
-                <strong>Industry:</strong> {company.industry}
-              </p>
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {companies.map((company) => (
+          <div
+            key={company.id}
+            className="p-5 bg-white rounded-xl shadow hover:shadow-lg border"
+          >
+            <h3 className="text-xl font-semibold mb-2">{company.name}</h3>
+            <p className="text-gray-600 text-sm mb-1">
+              📍 {company.location}
+            </p>
+            <p className="text-gray-600 text-sm mb-1">
+              🏢 {company.industry}
+            </p>
 
-              <p className="mt-3 text-sm text-gray-500">
-                {company.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      )}
+            <p className="text-gray-700 text-sm mt-3 mb-4">
+              {company.smallInfo}
+            </p>
+
+            <button
+              onClick={() => setSelectedCompany(company)}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            >
+              Details
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* Modal */}
+      <CompanyModal 
+        company={selectedCompany} 
+        onClose={() => setSelectedCompany(null)} 
+      />
     </div>
   );
 };

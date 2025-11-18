@@ -1,48 +1,28 @@
 import { createContext, useState, useEffect } from "react";
 import companiesData from "../assets/company.json";
 
-// Default safe values
-const CompanyContext = createContext({
-  companies: [],
-  search: "",
-  setSearch: () => {},
-  locationFilter: "All",
-  setLocationFilter: () => {},
-  industryFilter: "All",
-  setIndustryFilter: () => {},
-  locations: [],
-  industries: []
-});
+const CompanyContext = createContext();
 
 export const CompanyProvider = ({ children }) => {
   const [companies, setCompanies] = useState(companiesData);
   const [search, setSearch] = useState("");
   const [locationFilter, setLocationFilter] = useState("All");
   const [industryFilter, setIndustryFilter] = useState("All");
-  const [filtered, setFiltered] = useState([]);
+  const [filtered, setFiltered] = useState(companiesData);
 
-  // Load initial data
-  useEffect(() => {
-    setCompanies(companiesData);
-  }, []);
-
-  // Apply all filters
   useEffect(() => {
     let data = companies;
 
-    // Search filter
     if (search.trim() !== "") {
       data = data.filter((company) =>
         company.name.toLowerCase().includes(search.toLowerCase())
       );
     }
 
-    // Location filter
     if (locationFilter !== "All") {
       data = data.filter((company) => company.location === locationFilter);
     }
 
-    // Industry filter
     if (industryFilter !== "All") {
       data = data.filter((company) => company.industry === industryFilter);
     }

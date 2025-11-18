@@ -1,73 +1,98 @@
 [
   {
     "id": 1,
-    "name": "TechNova Solutions",
-    "location": "Bengaluru, India",
-    "industry": "Software Development",
-    "employees": 240
+    "name": "TechSoft Solutions",
+    "location": "New York",
+    "industry": "Software",
+    "smallInfo": "Enterprise software company specializing in automation.",
+    "description": "TechSoft Solutions is a leading provider of enterprise SaaS platforms for workflow automation, cybersecurity, and integration services. The company helps businesses reduce manual tasks and accelerate growth."
   },
   {
     "id": 2,
-    "name": "GreenLeaf Organics",
-    "location": "Pune, India",
-    "industry": "Agriculture / Food",
-    "employees": 65
-  }
-  ,
+    "name": "GreenLeaf Energy",
+    "location": "California",
+    "industry": "Energy",
+    "smallInfo": "Renewable energy company producing solar equipment.",
+    "description": "GreenLeaf Energy builds eco-friendly solar technologies for residential and commercial use. Their innovation focuses on high-efficiency panels and battery storage solutions."
+  },
   {
     "id": 3,
-    "name": "UrbanBuild Constructions",
-    "location": "Hyderabad, India",
-    "industry": "Construction",
-    "employees": 480
+    "name": "Apex Finance Group",
+    "location": "Texas",
+    "industry": "Finance",
+    "smallInfo": "Financial services provider offering investment solutions.",
+    "description": "Apex Finance Group provides wealth management, consulting, and risk assessment services to startups, enterprises, and individual investors across the United States."
   },
   {
     "id": 4,
-    "name": "MediCare Pharma",
-    "location": "Mumbai, India",
-    "industry": "Healthcare / Pharma",
-    "employees": 320
+    "name": "SkyNet Logistics",
+    "location": "Florida",
+    "industry": "Logistics",
+    "smallInfo": "Fast-growing logistics & transportation company.",
+    "description": "SkyNet Logistics offers nationwide supply chain solutions, including cargo transport, inventory management, and same-day delivery services using advanced tracking technologies."
   },
   {
     "id": 5,
-    "name": "FinWave Technologies",
-    "location": "Chennai, India",
-    "industry": "FinTech",
-    "employees": 150
+    "name": "HealthFirst Labs",
+    "location": "New York",
+    "industry": "Healthcare",
+    "smallInfo": "Medical research and diagnostic laboratory.",
+    "description": "HealthFirst Labs conducts advanced medical research, diagnostics, and biotechnology development, partnering with hospitals and global pharmaceutical firms."
   },
   {
     "id": 6,
-    "name": "EduSpark Academy",
-    "location": "Delhi, India",
-    "industry": "EdTech",
-    "employees": 85
+    "name": "EduSmart Academy",
+    "location": "Washington",
+    "industry": "Education",
+    "smallInfo": "E-learning platform offering skill development programs.",
+    "description": "EduSmart Academy provides online courses for students and professionals in technology, business, design, and science with certified instructors worldwide."
   },
   {
     "id": 7,
-    "name": "SkyWay Logistics",
-    "location": "Kolkata, India",
-    "industry": "Transport / Logistics",
-    "employees": 410
+    "name": "BlueOcean Foods",
+    "location": "California",
+    "industry": "Food",
+    "smallInfo": "Fresh seafood distributor serving restaurants nationwide.",
+    "description": "BlueOcean Foods supplies sustainable seafood sourced from global fisheries. They specialize in premium-grade fish, shellfish, and frozen products for hospitality businesses."
   },
   {
     "id": 8,
-    "name": "BrightPixel Studios",
-    "location": "Goa, India",
-    "industry": "Creative / Media",
-    "employees": 40
+    "name": "PixelCraft Studios",
+    "location": "Texas",
+    "industry": "Design",
+    "smallInfo": "Creative studio delivering branding & digital design.",
+    "description": "PixelCraft Studios works with startups and enterprises to develop brand identities, websites, product designs, and marketing visuals using modern design techniques."
   },
   {
     "id": 9,
-    "name": "AquaPure Systems",
-    "location": "Ahmedabad, India",
-    "industry": "Water Technology",
-    "employees": 120
+    "name": "NovaTech Electronics",
+    "location": "Ohio",
+    "industry": "Electronics",
+    "smallInfo": "Consumer electronics manufacturer.",
+    "description": "NovaTech Electronics creates smart home devices, wearables, and IoT-connected products with a focus on durability, affordability, and cutting-edge innovation."
   },
   {
     "id": 10,
-    "name": "CloudWorks IT",
-    "location": "Noida, India",
-    "industry": "Cloud Computing",
-    "employees": 270
+    "name": "RapidHire Solutions",
+    "location": "Florida",
+    "industry": "Recruitment",
+    "smallInfo": "HR tech company automating hiring workflows.",
+    "description": "RapidHire Solutions develops AI-driven recruitment software to help employers streamline candidate screening, onboarding, and job posting management."
+  },
+  {
+    "id": 11,
+    "name": "BuildMaster Constructions",
+    "location": "Washington",
+    "industry": "Construction",
+    "smallInfo": "Infrastructure development & commercial projects.",
+    "description": "BuildMaster constructs commercial complexes, corporate offices, and infrastructure projects using sustainable building technologies."
+  },
+  {
+    "id": 12,
+    "name": "EcoWash Cleaners",
+    "location": "New York",
+    "industry": "Services",
+    "smallInfo": "Eco-friendly laundry & cleaning services.",
+    "description": "EcoWash Cleaners offers premium laundry, dry cleaning, and sanitization services using environmentally safe products and modern automated systems."
   }
 ]
