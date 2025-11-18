@@ -61,10 +61,10 @@ const Companies = () => {
           >
             <h3 className="text-xl font-semibold mb-2">{company.name}</h3>
             <p className="text-gray-600 text-sm mb-1">
-              📍 {company.location}
+               {company.location}
             </p>
             <p className="text-gray-600 text-sm mb-1">
-              🏢 {company.industry}
+               {company.industry}
             </p>
 
             <p className="text-gray-700 text-sm mt-3 mb-4">
