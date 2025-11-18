@@ -1,4 +1,3 @@
-// src/context/CompanyContext.jsx
 import { createContext, useState, useEffect } from "react";
 import companiesData from "../assets/company.json";
 
@@ -25,7 +24,7 @@ export const CompanyProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Simulate API fetch (replace with fetch() if you have backend)
+    // Simulate data fetching
   useEffect(() => {
     setLoading(true);
     setError(null);

@@ -1,4 +1,3 @@
-// src/components/CompanyCard.jsx
 import React from "react";
 
 export default function CompanyCard({ company, onDetails }) {
