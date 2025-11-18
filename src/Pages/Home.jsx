@@ -1,4 +1,5 @@
 import image from '../assets/modern-equipped-computer-lab.jpg';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -18,12 +19,12 @@ const Home = () => {
           Tailwind CSS, and modern UI components.
         </p>
 
-        <a
-          href="/companies"
+        <Link
+          to="/companies"
           className="mt-10 inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-full text-lg font-semibold shadow-lg transition"
         >
           View Companies
-        </a>
+        </Link>
       </div>
     </div>
   );

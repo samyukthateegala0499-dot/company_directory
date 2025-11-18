@@ -6,13 +6,15 @@ import { CompanyProvider } from "./Context/CompanyContext";
 
 const App = () => {
   return (
-    <CompanyProvider>
+    <Router>
+      <CompanyProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/companies" element={<Companies />} />
         </Routes>
-    </CompanyProvider>
+      </CompanyProvider>
+    </Router>
   );
 };
 
