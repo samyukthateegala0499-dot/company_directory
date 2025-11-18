@@ -1,55 +1,84 @@
-import { useCompany } from "../Context/CompanyContext.jsx";
+import { useContext } from "react";
+import CompanyContext from "../Context/CompanyContext";
 
 const Companies = () => {
-  const { companies, search, setSearch, industry, setIndustry } = useCompany();
-
-  const industries = ["Software", "Manufacturing", "Finance", "Marketing", "Construction"];
+  const {
+    companies,
+    search,
+    setSearch,
+    locationFilter,
+    setLocationFilter,
+    industryFilter,
+    setIndustryFilter,
+    locations,
+    industries,
+  } = useContext(CompanyContext);
 
   return (
-    <div className="pt-28 px-6 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6">Company Listings</h2>
+    <div className="pt-24 px-6 max-w-7xl mx-auto">
+      <h1 className="text-3xl font-bold mb-8">Company Directory</h1>
 
       {/* Filters */}
-      <div className="flex flex-col md:flex-row gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
         
         {/* Search */}
         <input
           type="text"
-          placeholder="Search by name..."
-          className="px-4 py-2 border rounded-lg w-full md:w-1/3"
+          placeholder="Search by company name..."
+          className="p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
 
+        {/* Location Filter */}
+        <select
+          className="p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+          value={locationFilter}
+          onChange={(e) => setLocationFilter(e.target.value)}
+        >
+          {locations.map((loc, i) => (
+            <option key={i} value={loc}>{loc}</option>
+          ))}
+        </select>
+
         {/* Industry Filter */}
         <select
-          className="px-4 py-2 border rounded-lg w-full md:w-1/3"
-          value={industry}
-          onChange={(e) => setIndustry(e.target.value)}
+          className="p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+          value={industryFilter}
+          onChange={(e) => setIndustryFilter(e.target.value)}
         >
-          <option value="">All Industries</option>
-          {industries.map((i) => (
-            <option key={i} value={i}>
-              {i}
-            </option>
+          {industries.map((ind, i) => (
+            <option key={i} value={ind}>{ind}</option>
           ))}
         </select>
       </div>
 
       {/* Company Cards */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {companies.map((company) => (
-          <div key={company.id} className="border rounded-xl p-6 shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-bold">{company.name}</h3>
-            <p className="text-gray-600 mt-2">{company.industry}</p>
-            <p className="text-sm text-gray-500">{company.location}</p>
-          </div>
-        ))}
-      </div>
+      {companies.length === 0 ? (
+        <p className="text-gray-500 text-lg">No companies found.</p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {companies.map((company) => (
+            <div
+              key={company.id}
+              className="p-6 bg-white shadow-md rounded-xl border hover:shadow-lg transition"
+            >
+              <h2 className="text-xl font-semibold mb-2">{company.name}</h2>
+              
+              <p className="text-gray-600">
+                <strong>Location:</strong> {company.location}
+              </p>
+              
+              <p className="text-gray-600">
+                <strong>Industry:</strong> {company.industry}
+              </p>
 
-      {/* If none found */}
-      {companies.length === 0 && (
-        <p className="text-gray-500 mt-10 text-center">No companies match the filters.</p>
+              <p className="mt-3 text-sm text-gray-500">
+                {company.description}
+              </p>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

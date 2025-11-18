@@ -1,28 +1,70 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import companiesData from "../assets/company.json";
 
-const CompanyContext = createContext();
+// Default safe values
+const CompanyContext = createContext({
+  companies: [],
+  search: "",
+  setSearch: () => {},
+  locationFilter: "All",
+  setLocationFilter: () => {},
+  industryFilter: "All",
+  setIndustryFilter: () => {},
+  locations: [],
+  industries: []
+});
 
 export const CompanyProvider = ({ children }) => {
   const [companies, setCompanies] = useState(companiesData);
   const [search, setSearch] = useState("");
-  const [industry, setIndustry] = useState("");
+  const [locationFilter, setLocationFilter] = useState("All");
+  const [industryFilter, setIndustryFilter] = useState("All");
+  const [filtered, setFiltered] = useState([]);
 
-  // Filter logic
-  const filteredCompanies = companies.filter((c) => {
-    const matchSearch = c.name.toLowerCase().includes(search.toLowerCase());
-    const matchIndustry = industry ? c.industry === industry : true;
-    return matchSearch && matchIndustry;
-  });
+  // Load initial data
+  useEffect(() => {
+    setCompanies(companiesData);
+  }, []);
+
+  // Apply all filters
+  useEffect(() => {
+    let data = companies;
+
+    // Search filter
+    if (search.trim() !== "") {
+      data = data.filter((company) =>
+        company.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    // Location filter
+    if (locationFilter !== "All") {
+      data = data.filter((company) => company.location === locationFilter);
+    }
+
+    // Industry filter
+    if (industryFilter !== "All") {
+      data = data.filter((company) => company.industry === industryFilter);
+    }
+
+    setFiltered(data);
+  }, [search, locationFilter, industryFilter, companies]);
+
+  const locations = ["All", ...new Set(companies.map((c) => c.location))];
+  const industries = ["All", ...new Set(companies.map((c) => c.industry))];
 
   return (
     <CompanyContext.Provider
       value={{
-        companies: filteredCompanies,
+        companies: filtered,
         search,
         setSearch,
-        industry,
-        setIndustry,
+        locationFilter,
+        setLocationFilter,
+        industryFilter,
+        setIndustryFilter,
+        locations,
+        industries
       }}
     >
       {children}
@@ -30,4 +72,4 @@ export const CompanyProvider = ({ children }) => {
   );
 };
 
-export const useCompany = () => useContext(CompanyContext);
+export default CompanyContext;
